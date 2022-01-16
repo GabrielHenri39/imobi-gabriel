@@ -22,11 +22,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'agendamentos' %}">Agendamento</a>
+                        <a class="nav-link" href="{% url 'agendamentos' %}">Agendamento</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href={% url 'sair' %}>sair</a>
                     </li>
+                    {% if user.is_staff%}
+                        <li class="nav-item active">
+                            <a class="nav-link" href='/admin'>admin</a>
+                        </li>
+                    {% endif %} 
                 </ul>
                 
 

@@ -26,7 +26,7 @@ def cadastro(request):
             if user.exists():
             
                 messages.add_message(request, constants.ERROR, 'Já existe um usuário com esse nome cadastrado')
-                return redirect("auth/cadastro")
+                return redirect("/auth/cadastro")
 
             try:
                 user = User.objects.create_user(username=username,
@@ -34,10 +34,10 @@ def cadastro(request):
                                            password = senha)
                 user.save()
                 messages.add_message(request, constants.SUCCESS, 'Cadastro realizado com sucesso')
-                return redirect('auth/logar')
+                return redirect('/auth/logar/')
             except:
                 messages.add_message(request, constants.ERROR, 'Erro interno do sistema')
-                return redirect("auth/cadastro")
+                return redirect("/auth/cadastro")
 
 
 def logar(request):
